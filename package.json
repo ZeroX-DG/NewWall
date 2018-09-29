@@ -1,0 +1,41 @@
+{
+  "name": "newwall",
+  "version": "1.0.0",
+  "description": "Just another wallpaper changing app!",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ./index.js",
+    "dev": "node dev.js",
+    "prod": "webpack --mode production"
+  },
+  "author": "Hung Nguyen <viethungax@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "electron": "^3.0.2",
+    "electron-builder": "^20.28.4",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "signale": "^1.3.0",
+    "style-loader": "^0.23.0",
+    "vue-loader": "^14.2.3",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "dependencies": {
+    "@zerox-dg/wallpaper": "^3.1.0",
+    "electron-store": "^2.0.0",
+    "image-downloader": "^3.4.1",
+    "lodash": "^4.17.11",
+    "rimraf": "^2.6.2",
+    "unsplash-js": "^4.8.0",
+    "v-lazy-image": "^1.2.2",
+    "vue": "^2.5.17"
+  }
+}
