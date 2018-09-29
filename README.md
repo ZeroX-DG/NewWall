@@ -14,7 +14,7 @@ NewWall is a side-project to refresh my Vue.js knowledge. I actually created the
 git clone https://github.com/ZeroX-DG/NewWall.git
 ```
 
-2. Fill in your unsplash API config in `config.example.js` and rename it to `config.js`
+2. Fill in your unsplash API credentials in `config.example.js` and rename it to `config.js`
 3. Install dependencies
 
 ```
