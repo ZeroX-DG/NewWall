@@ -133,6 +133,7 @@ export default {
         rimraf(`${path.dirname(dest)}/*`, () => {
           download.image(options)
             .then(({filename}) => {
+              unsplash.photos.downloadPhoto(image)
               wallpaper.set(filename, backgroundModifier).then(() => {
                 console.log('done');
               });
