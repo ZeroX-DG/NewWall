@@ -45,7 +45,7 @@
     },
     "mac": {
       "category": "public.app-category.utilities",
-      "icon": "resources/icon/icon256.png"
+      "icon": "resources/icon/icon512.png"
     },
     "linux": {
       "category": "Utilities",
@@ -57,7 +57,7 @@
     },
     "win": {
       "target": "nsis",
-      "icon": "resources/icon/icon256.ico"
+      "icon": "resources/icon/icon512.ico"
     }
   },
   "author": "Hung Nguyen <viethungax@gmail.com>",
