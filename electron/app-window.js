@@ -21,7 +21,7 @@ function createWindow(app) {
     webPreferences: {
       blinkFeatures: "OverlayScrollbars"
     },
-    icon: path.resolve(__dirname, "../resources/icon/icon512.png")
+    icon: path.resolve(__dirname, "../resources/icon/icon256.png")
   });
 
   const url = "file://" + path.resolve(__dirname, "./index.html");

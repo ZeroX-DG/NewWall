@@ -6,7 +6,59 @@
   "scripts": {
     "start": "electron ./index.js",
     "dev": "node dev.js",
-    "prod": "webpack --mode production"
+    "prod": "webpack --mode production",
+    "dist": "npm run prod && rimraf dist/ && electron-builder --win --linux --mac"
+  },
+  "build": {
+    "appId": "com.zerox-dg.newwal",
+    "productName": "NewWall",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.js",
+      "package.json",
+      "compiled/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "resources/**/*"
+    ],
+    "extraResources": [
+      "LICENSE",
+      "THIRD-PARTY-LICENSES.txt"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 438,
+          "y": 275,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 192,
+          "y": 275,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "resources/icon/icon256.png"
+    },
+    "linux": {
+      "category": "Utilities",
+      "icon": "resources/icon",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon/icon256.ico"
+    }
   },
   "author": "Hung Nguyen <viethungax@gmail.com>",
   "license": "MIT",
@@ -15,7 +67,9 @@
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.4.1",
     "css-loader": "^1.0.0",
+    "del": "^3.0.0",
     "electron": "^3.0.2",
     "electron-builder": "^20.28.4",
     "node-sass": "^4.9.3",
