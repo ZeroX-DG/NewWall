@@ -7,7 +7,8 @@
     "start": "electron ./index.js",
     "dev": "node dev.js",
     "prod": "webpack --mode production",
-    "dist": "npm run prod && rimraf dist/ && electron-builder --win --linux"
+    "dist": "npm run prod && rimraf dist/ && electron-builder --win --linux",
+    "dist:mac": "npm run prod && rimraf dist/ && electron-builder --mac"
   },
   "build": {
     "appId": "com.zerox-dg.newwal",
