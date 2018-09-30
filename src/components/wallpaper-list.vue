@@ -2,6 +2,9 @@
   <div id="wallpaper-list">
     <div class="image-container" @click="setBackground(image)" v-for="image in images" :key="image.id">
       <v-lazy-image :src="image.urls.custom" class="image" />
+      <div class='info'>
+        <label>Photo by <a :href="image.user.links.html" @click="openLink" v-text="image.user.name"></a> on <a :href="image.links.html" @click="openLink">Unsplash</a></label>
+      </div>
     </div>
   </div>
 </template>
@@ -23,11 +26,31 @@
   flex: 1 1 25%
   cursor: pointer
   transition: opacity .3s ease-in-out
+  position: relative
+  overflow: hidden
   &:hover
     opacity: 1!important
+    & .info
+      opacity: 1
   .image
     width: 100%
     display: block
+  .info
+    width: 100%
+    position: absolute
+    z-index: 10
+    opacity: 0
+    bottom: 0
+    left: 0
+    padding: 5px
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8))
+    transition: 0.5s opacity
+    label
+      color: white
+      font-family: "Lato"
+      a
+        color: white
+        font-weight: bold
 .v-lazy-image
   opacity: 0
   transition: opacity 2s
@@ -40,7 +63,7 @@
 import Unsplash from 'unsplash-js';
 import wallpaper from '@zerox-dg/wallpaper';
 import download from 'image-downloader';
-import { remote } from 'electron';
+import { remote, shell } from 'electron';
 import path from 'path';
 import rimraf from 'rimraf';
 import fs from 'fs';
@@ -75,6 +98,11 @@ export default {
     this.fetchImages()
   },
   methods: {
+    openLink (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      shell.openExternal(e.target.href);
+    },
     fetchImages () {
       unsplash.photos.getRandomPhoto({ width: this.width, height: this.height, query: this.search, count: this.numOfImages })
         .then(res => res.json())
