@@ -1,6 +1,6 @@
 {
   "name": "newwall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just another wallpaper changing app!",
   "main": "index.js",
   "scripts": {
