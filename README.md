@@ -29,6 +29,10 @@ npm run dev
 
 More info at [package.json](package.json)
 
+## Donation
+
+<a href="https://www.buymeacoffee.com/hQteV8A" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 ## Author
 
 - Hung Nguyen ([twitter](https://twitter.com/ZeroX_Hung))
