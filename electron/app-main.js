@@ -24,7 +24,3 @@ if (isSecondInstance) {
 app.on("ready", () => {
   mainWindow = require("./app-window")(app);
 });
-
-app.on("before-quit", () => {
-  mainWindow.shouldQuit();
-});

@@ -8,7 +8,6 @@ const _ = require("lodash");
 const showMenu = process.platform !== "win32";
 const windowSize = store.get("windowsize") || { width: 1080, height: 720 };
 let mainWindow = null;
-let isQuitting = false;
 
 function createWindow(app) {
   mainWindow = new BrowserWindow({
@@ -31,22 +30,6 @@ function createWindow(app) {
   if (process.env.NODE_ENV === "dev") {
     mainWindow.webContents.openDevTools();
   }
-  // prevent the app from quitting
-  mainWindow.on("close", e => {
-    if (!isQuitting) {
-      e.preventDefault();
-      mainWindow.blur();
-      if (process.platform === "darwin") {
-        app.hide();
-      } else {
-        mainWindow.hide();
-      }
-    }
-  });
-
-  mainWindow.shouldQuit = function() {
-    isQuitting = true;
-  };
 
   return mainWindow;
 }
